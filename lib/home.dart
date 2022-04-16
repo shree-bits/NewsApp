@@ -85,7 +85,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ARNE NEWS"),
+        title: Text("INDIA TV NEWS"),
         centerTitle: true,
       ),
       body: SingleChildScrollView(

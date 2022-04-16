@@ -49,7 +49,7 @@ class _CategoryState extends State<Category> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ARNE NEWS"),
+        title: Text("INDIA TV NEWS"),
         centerTitle: true,
       ),
       body:    SingleChildScrollView(
