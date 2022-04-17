@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'package:easy_web_view/easy_web_view.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 class NewsView extends StatefulWidget {
 
   String url;
@@ -11,7 +11,8 @@ class NewsView extends StatefulWidget {
 
 class _NewsViewState extends State<NewsView> {
   late  String finalUrl;
-  final Completer<WebViewController> controller = Completer<WebViewController>();
+  final Completer<EasyWebView> controller = Completer<EasyWebView>();
+  static ValueKey key = const ValueKey('key_0');
   @override
   void initState() {
     if(widget.url.toString().contains("http://"))
@@ -31,14 +32,11 @@ class _NewsViewState extends State<NewsView> {
         centerTitle: true,
       ),
       body: Container(
-        child: WebView(
-          initialUrl: finalUrl,
-          javascriptMode: JavascriptMode.unrestricted,
-          onWebViewCreated: (WebViewController webViewController){
-            setState(() {
-              controller.complete(webViewController);
-            });
-          },
+        child: EasyWebView(
+          src: finalUrl,
+          isMarkdown: false,
+          convertToWidgets: false,
+          key: key,
         ),
       ),
     );
